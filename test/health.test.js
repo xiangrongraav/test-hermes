@@ -23,5 +23,8 @@ test('GET /health responds with the healthy JSON representation', async () => {
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get('content-type') ?? '', /^application\/json\b/i);
-  assert.deepEqual(await response.json(), { status: 'ok' });
+  assert.deepEqual(await response.json(), {
+    status: 'ok',
+    service: 'hermes-demo-001',
+  });
 });
